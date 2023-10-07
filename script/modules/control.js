@@ -122,7 +122,7 @@ export const formControl = (form, list, btn) => {
       newJob.classTdTask = 'task';
       newJob.classTdStatus = 'status';
       addJobPage(newJob, list);
-      addJobData(user, newJob);
+      addJobData(newJob);
       form.reset();
       btn.disabled = 'true';
     }

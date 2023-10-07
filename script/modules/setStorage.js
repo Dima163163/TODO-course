@@ -18,8 +18,10 @@ export const setStorage = (obj) => {
 };
 
 // Функция добавления дела в объект
-export const addJobData = (key, job) => {
+export const addJobData = (job) => {
+  const user = localStorage.getItem('user');
+  if (!user) return;
   if (job) {
-    setStorage(key, job);
+    setStorage(job);
   }
 };
