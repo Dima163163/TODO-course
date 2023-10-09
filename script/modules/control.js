@@ -95,7 +95,6 @@ export const jobDel = (form, list) => {
         .querySelector('td').textContent);
     if (target.classList.contains('btn-danger')) {
       const question = confirm('Вы уверены что хотите удалить задачу?');
-      console.log(target.classList.contains('btn-danger'));
       if (question) {
         target.closest('tr').remove();
         const newData = data.filter((job) => job.id !== numberElement);
