@@ -8,19 +8,21 @@ export const editTask = (list) => {
     const data = getStorage(user);
     const target = e.target;
     if (target.closest('.btn-primary')) {
-      const jobTask = target.closest('.table-light')
-          .querySelector('.task');
-      jobTask.setAttribute('contenteditable', 'true');
-      const jobId = target.closest('.table-light').querySelector('td');
-      const jobNumber = Number(jobId.textContent);
-      const newDate = data.map(job => {
-        if (job.id === jobNumber) {
-          return {...job, name: jobTask.textContent};
-        } else {
-          return job;
-        }
-      });
-      setStorage(user, newDate);
+      if (target.closest('.table-light')) {
+        const jobTask = target.closest('.table-light')
+            .querySelector('.task');
+        jobTask.setAttribute('contenteditable', 'true');
+        const jobId = target.closest('.table-light').querySelector('td');
+        const jobNumber = Number(jobId.textContent);
+        const newDate = data.map(job => {
+          if (job.id === jobNumber) {
+            return {...job, name: jobTask.textContent};
+          } else {
+            return job;
+          }
+        });
+        setStorage(user, newDate);
+      }
     }
   });
 };
