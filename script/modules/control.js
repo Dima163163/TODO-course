@@ -49,7 +49,7 @@ export const jobSuccess = (form) => {
             return job;
           }
         });
-        setStorage(user, newData);
+        setStorage(newData);
       }
     } else {
       if (target.classList.contains('btn-success')) {
@@ -68,7 +68,7 @@ export const jobSuccess = (form) => {
             return job;
           }
         });
-        setStorage(user, newData);
+        setStorage(newData);
       }
     }
   });
@@ -91,7 +91,7 @@ export const jobDel = (form, list) => {
         const newData = data.filter((job) => job.id !== numberElement);
         const newJob = newData.map((item, index) =>
           ({...item, id: index + 1}));
-        setStorage(user, newJob);
+        setStorage(newJob);
         list.textContent = '';
         renderCases(list);
       }
