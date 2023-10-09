@@ -21,7 +21,7 @@ export const editTask = (list) => {
             return job;
           }
         });
-        setStorage(user, newDate);
+        setStorage(newDate);
       }
     }
   });
