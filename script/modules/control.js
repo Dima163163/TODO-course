@@ -32,12 +32,15 @@ export const jobSuccess = (form) => {
     elem.querySelector('.task') :
     elem.querySelector('.text-decoration-line-through');
     const statusName = elem.querySelector('.status');
+    const urgencyOfTask = elem.querySelector('.table-light') ||
+    elem.querySelector('.table-warning') || elem.querySelector('.table-danger');
     if (target.closest('.table-light')) {
       if (target.classList.contains('btn-success')) {
         elem.classList.remove('table-light');
         elem.classList.add('table-success');
         nameJob.classList.remove('task');
         nameJob.classList.add('text-decoration-line-through');
+        urgencyOfTask.style = 'background-color: #d1e7dd;';
         statusName.textContent = 'Выполнено';
         const newData = data.map((job) => {
           if (job.id === numberElement) {
@@ -57,6 +60,13 @@ export const jobSuccess = (form) => {
         elem.classList.add('table-light');
         nameJob.classList.remove('text-decoration-line-through');
         nameJob.classList.add('task');
+        if (urgencyOfTask.textContent === 'Обычная') {
+          urgencyOfTask.style = 'background-color: #f8f9fa;';
+        } else if (urgencyOfTask.textContent === 'Важная') {
+          urgencyOfTask.style = 'background-color: #fff3cd;';
+        } else {
+          urgencyOfTask.style = 'background-color: #f8d7da;';
+        }
         statusName.textContent = 'В процессе';
         const newData = data.map((job) => {
           if (job.id === numberElement) {
