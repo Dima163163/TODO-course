@@ -227,7 +227,7 @@ export const createRow = ({id, name, status, classTR,
       className: 'btn btn-primary',
       type: 'button',
       contenteditable: 'true',
-      text: 'Редактировать',
+      text: 'Редактировать / Завершить редактирование',
     },
   ]);
   tdTactic.append(...buttonGroup);
