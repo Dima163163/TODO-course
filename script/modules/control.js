@@ -41,6 +41,7 @@ export const jobSuccess = (form) => {
         nameJob.classList.remove('task');
         nameJob.classList.add('text-decoration-line-through');
         urgencyOfTask.style = 'background-color: #d1e7dd;';
+        // localStorage.setItem('color', '#d1e7dd');
         statusName.textContent = 'Выполнено';
         const newData = data.map((job) => {
           if (job.id === numberElement) {
@@ -62,10 +63,13 @@ export const jobSuccess = (form) => {
         nameJob.classList.add('task');
         if (urgencyOfTask.textContent === 'Обычная') {
           urgencyOfTask.style = 'background-color: #f8f9fa;';
+          // localStorage.setItem('color-bg', '#f8f9fa');
         } else if (urgencyOfTask.textContent === 'Важная') {
           urgencyOfTask.style = 'background-color: #fff3cd;';
+          // localStorage.setItem('color-bg', '#fff3cd');
         } else {
           urgencyOfTask.style = 'background-color: #f8d7da;';
+          // localStorage.setItem('color-bg', '#f8d7da');
         }
         statusName.textContent = 'В процессе';
         const newData = data.map((job) => {

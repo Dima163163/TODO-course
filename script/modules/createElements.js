@@ -159,7 +159,10 @@ export const createTable = () => {
         <th>Задача</th>
         <th>Статус</th>
         <th>Важность задачи</th>
-        <th>Действия</th>
+        <th>Действия
+        (для зверершения редактирования
+        нажать второй раз на кнопку редактировать)
+        </th>
       </tr>
     </thead>
   `);
@@ -189,11 +192,16 @@ export const createRow = ({id, name, status, classTR,
   tdTask.textContent = name;
 
   const tdStatus = document.createElement('td');
-  tdStatus.classList.add(classTdStatus);
+  tdStatus.classList.add(classTdStatus || 'table-success');
   tdStatus.textContent = status;
 
   const tdImportance = document.createElement('td');
   tdImportance.classList.add(importance);
+
+  if (tr.closest('.table-success')) {
+    tdImportance.style = 'background-color: #d1e7dd';
+  }
+
   if (importance === 'table-warning') {
     tdImportance.textContent = 'Важная';
   } else if (importance === 'table-danger') {

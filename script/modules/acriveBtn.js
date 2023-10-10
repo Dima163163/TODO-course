@@ -1,6 +1,6 @@
 // Функция активации и деактивации кнопки сохранить
 export const activeSaveBtn = (input, btn) => {
-  input.addEventListener('change', () => {
+  input.addEventListener('keypress', () => {
     if (input.value === '') {
       btn.disabled = true;
     } else {
